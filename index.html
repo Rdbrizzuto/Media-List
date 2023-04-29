@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media List</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Media List</h1>
+    </header>
+
+    <form>
+      <input type="text" id="medialist-input" placeholder="Enter Media name here">
+      <select id="add-mediatype">
+        <option value="show">show</option>
+        <option value="movie">movie</option>
+        <option value="book">book</option>
+        <option value="podcast">podcast</option>
+        <option value="videogame">videogame</option>
+      </select>
+      <button id="add-to-list" type="submit">add</button>
+      <!--  ChatGPT had a slightly different format for the above (also <form action="...") 
+        might be neccesary)-->
+    </form>
+
+    <select name="mediatypes" class="medialist-filter">
+      <option value="all">all</option>
+      <option value="shows">shows</option>
+      <option value="movies">movies</option>
+      <option value="books">books</option>
+      <option value="podcasts">podcasts</option>
+      <option value="videogame">videogame</option>
+    </select>
+
+    <div class="medialist-container">
+      <ul class="medialist-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

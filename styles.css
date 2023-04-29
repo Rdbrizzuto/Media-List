@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* everything below is really poorly organized. Re-do after javascript!*/
+
+body {
+    background-color: rgb(29, 25, 43);
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    font-size: 24px;
+}
+
+header, 
+form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button, form select {
+    font-size: 28px;
+    background-color: white;
+}
+
+
+form button:hover {
+    color: white;
+    background-color: rgb(30, 144, 255);
+}
+
+.medialist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.medialist-list {
+    min-width: 30%;
+    list-style: none;
+}
+
+.medialist {
+    margin: 8px;
+    padding-left: 8px;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 32px;
+}
+
+.medialist li {
+    flex: 1;
+}
+
+.remove-btn {
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+select {
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.add-as {
+    margin-right: 32px;
+    background-color: gray;
+}
+
+.medialist-filter {
+    font-size: 24px;
+}
