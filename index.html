@@ -21,11 +21,9 @@
         <option value="videogame">videogame</option>
       </select>
       <button id="add-to-list" type="submit">add</button>
-      <!--  ChatGPT had a slightly different format for the above (also <form action="...") 
-        might be neccesary)-->
     </form>
 
-    <select name="mediatypes" class="medialist-filter">
+    <select name="mediatypes" id="medialist-filter">
       <option value="all">all</option>
       <option value="shows">shows</option>
       <option value="movies">movies</option>
@@ -34,8 +32,9 @@
       <option value="videogame">videogame</option>
     </select>
 
-    <div class="medialist-container">
-      <ul class="medialist-list"></ul>
+    <div id="medialist-container">
+      <ul id="medialist-list">
+      </ul>
     </div>
 
     <script src="script.js"></script>
