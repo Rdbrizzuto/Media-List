@@ -3,12 +3,12 @@ function appendList() {
     let mediaType = document.querySelector('#add-mediatype').value;
 
     let listItem = document.createElement('li');
-    listItem.innerHTML = newItem + " (" + mediaType + ")"
-    listItem.className = mediaType
-    // ^^^will this set a hidden value, so I can filter later??
-    //add red x next to list items to be the delete button
+    listItem.innerHTML = newItem + " (" + mediaType + ")";
+    listItem.className = mediaType;
+    //add red x next to list items to be the delete button!!!!
 
     document.querySelector('#medialist-list').append(listItem);
+    // append a button at the same time ???
 
 
     document.querySelector('#medialist-input').value = ""
@@ -17,40 +17,31 @@ function appendList() {
 
 
 function filterList() {
-    let currentFilter = document.querySelector('#medialist-filter');
-    let shows = document.getElementsByClassName('show');
-    let movies = document.getElementsByClassName('movie');
-    let books = document.getElementsByClassName('book');
-    let podcasts = document.getElementsByClassName('podcast');
-    let videogames = document.getElementsByClassName('videogame'); 
+    let currentFilter = document.querySelector('#medialist-filter').value;
+    let listItems = document.querySelectorAll('#medialist-list li');
 
+    listItems.forEach(function(listItem) {
+        listItem.style.display = 'none';
 
-    if (currentFilter.value == "shows") {
-        document.querySelector('li').style.display = 'none';
-        shows.style.display = 'block'; 
-    }
-    else if (currentFilter.value == "movies") {
-        document.querySelector('li').style.display = 'none';
-        movies.style.display = 'block'; 
-    }
-    else if (currentFilter.value == "books") {
-        document.querySelector('li').style.display = 'none';
-        books.style.display = 'block'; 
-    }
-    else if (currentFilter.value == "podcasts") {
-        document.querySelector('li').style.display = 'none';
-        podcasts.style.display = 'block'; 
-    }
-    else if (currentFilter.value == "videogames") {
-        document.querySelector('li').style.display = 'none';
-        videogames.style.display = 'block'; 
-    }
-    
-    else {
-        document.querySelector('li').style.display = 'block';
-    }
-// ^^ doesn't work at filtering
-// I don't think the class name is correctly being assigned
+        if (currentFilter === "shows" && listItem.classList.contains('show')) {
+        listItem.style.display = 'block';
+        } 
+        else if (currentFilter === "movies" && listItem.classList.contains('movie')) {
+        listItem.style.display = 'block';
+        } 
+        else if (currentFilter === "books" && listItem.classList.contains('book')) {
+        listItem.style.display = 'block';
+        } 
+        else if (currentFilter === "podcasts" && listItem.classList.contains('podcast')) {
+        listItem.style.display = 'block';
+        } 
+        else if (currentFilter === "videogames" && listItem.classList.contains('videogame')) {
+        listItem.style.display = 'block';
+        }
+        else if (currentFilter === "all") {
+            listItem.style.display = 'block';
+        }
+    });
 }
 
 
@@ -59,4 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#add-to-list').onclick = appendList;
 });
 
-document.addEventListener('DOMContentLoaded', filterList);
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#medialist-filter').onchange = filterList
+});
