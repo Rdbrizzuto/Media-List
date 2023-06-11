@@ -1,3 +1,4 @@
+// function for taking inputed text and adding it to the media list
 function appendList() {
     let newItem = document.querySelector('#medialist-input').value;
     let mediaType = document.querySelector('#add-mediatype').value;
@@ -5,17 +6,24 @@ function appendList() {
     let listItem = document.createElement('li');
     listItem.innerHTML = newItem + " (" + mediaType + ")";
     listItem.className = mediaType;
-    //add red x next to list items to be the delete button!!!!
+    
+    // button that appears next to each list item, and removes the item when clicked
+    let removeButton = document.createElement('button');
+    removeButton.innerText = 'Remove';
+    removeButton.className = 'remove-button';
+    removeButton.addEventListener('click', function() {
+        listItem.remove();
+    });
 
+    listItem.appendChild(removeButton);
     document.querySelector('#medialist-list').append(listItem);
-    // append a button at the same time ???
 
 
     document.querySelector('#medialist-input').value = ""
     return false;
 }
 
-
+// function that allows you to change which list items are being displayed, based on their media type
 function filterList() {
     let currentFilter = document.querySelector('#medialist-filter').value;
     let listItems = document.querySelectorAll('#medialist-list li');
@@ -45,11 +53,12 @@ function filterList() {
 }
 
 
-
+// whenever the add button is clicked the "appendList" function is run
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#add-to-list').onclick = appendList;
 });
 
+// whenever the a new item on the medialist filter is selected, the "filterList" function runs
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#medialist-filter').onchange = filterList
 });
