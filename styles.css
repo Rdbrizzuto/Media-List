@@ -4,13 +4,11 @@
     box-sizing: border-box;
 }
 
-/* everything below is really poorly organized. Re-do after javascript!
-I switched all the dots to # */
-
 body {
     background-color: rgb(29, 25, 43);
     color: white;
     min-height: 100vh;
+    font-size: 22px;
 }
 
 header {
@@ -31,7 +29,7 @@ form input, form button, form select {
 }
 
 
-form button:hover {
+button:hover {
     color: white;
     background-color: rgb(30, 144, 255);
 }
@@ -42,7 +40,9 @@ form button:hover {
     align-items: center;
 }
 
-
+#medialist-container button {
+    margin: 10px;
+}
 
 #medialist-list {
     min-width: 30%;
@@ -78,11 +78,6 @@ select {
     font-size: 16px;
     background-color: white;
     cursor: pointer;
-}
-
-#add-as {
-    margin-right: 32px;
-    background-color: gray;
 }
 
 #medialist-filter {
